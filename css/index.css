@@ -48,7 +48,7 @@ ul{
     float: left;
     color: #333;
     font-size: 17px;
-    margin: 0 10px 0 0;
+    margin: 0 0 0 0;
     padding: 0px 30px;
     font-weight: 900;
     position: relative;
@@ -65,7 +65,12 @@ ul{
 #header #nav .depth2{
     position: absolute;
     top: 100%;
-    left: 0;
+    /*depth2를 중간으로보내는 코드*/
+    /*transform - translate (-50%) , margin-left : (width값 나누기2)*/
+    margin-left: -53px;
+    /* transform: translate(-50%); */
+    left: 50%;
+    /* left 값이 0일경우 한쪽으로 취우쳐짐*/
     width: 106%;
     /*px이 아닌 %로 상위와 크기를 같게 만들음*/
     background-color: #fff;
@@ -90,15 +95,27 @@ ul{
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 /*==================================================================================*/
-#section .slide{
+#section .slide1{
     background: url(../img/main1.jpg) no-repeat center / cover;
+}
+#section .slide2{
+    background: url(../img/main02.jpg) no-repeat center / cover;
+}
+#section .slide3{
+    background: url(../img/main03.jpg) no-repeat center / cover;
+}
+#section .slide4{
+    background: url(../img/main04.jpg) no-repeat center / cover;
+}
+#section .slide{
     height: 100vh;
     position: relative;
+    /*slide 가 많으므로 공통되는건 한번에 정리 할 수 있음*/
 }
 #section .slide .text{
     position: absolute;
 
-    top: 40%;
+    top: 45%;
     left: 50%;
 
     transform: translate(-50%,-50%);
@@ -114,6 +131,53 @@ ul{
 #section .slide .text p{
     font-size: 18px;
 }
+/*==================================================================================*/
+#section .slideouter .slideinner{
+    position: relative
+}
+#section .slideouter .slideinner button.slick-arrow{
+    position: absolute;
+    color: #fff;
+    font-size: 50px;
+    top: 50%;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+#section .slideouter .slideinner button.slick-prev{
+    left: 50px;
+    z-index: 999;
+}
+#section .slideouter .slideinner button.slick-next{
+    right: 50px;
+}
+#section .slideouter .slideinner ul.slick-dots{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    /*음수로 주면 밖으로 빼낼 수 있음*/
+    bottom: 50px;
+}
+#section .slideouter .slideinner ul.slick-dots li{
+    display: inline-block;
+    margin: 0 5px;
+}
+#section .slideouter .slideinner ul.slick-dots button{
+    border-radius: 50%;
+    width: 9px;
+    height: 9px;
+    text-indent: 9999px;
+    overflow: hidden;
+    background: #999;
+    border: none;
+}
+#section .slideouter .slideinner ul.slick-dots li.slick-active button{
+    background: #fff;
+    width: 25px;
+    height: 8px;
+    border-radius: 20% / 50%;
+}
+/*==================================================================================*/
 #section .aboutus{
     text-align: center;
     padding: 10px;
@@ -356,3 +420,12 @@ padding: 13px 0;
 #footer .btmmenu .sns a{
     padding: 10px;
 }
+/*반응형 스타일을 잡아줘야 좁아진 넓이에 따라 무너지는걸 방지할 수 있음*/
+/*로고 한줄 글 한줄 식으로 반응형을 잡아줘야 함*/
+/*자바 스크립트는 브라우저에서만 적용되는 프로그램이다. -> 우리가 클릭했을 때 나타나고
+ 이미지가 슬라이드 되어서 움직이는 건 모두 자바 스크립트라는 프로그램 언어를 이용하는 것
+  개발자들 또한 동일한 프로그램을 사용해도 코드가 점점 길어져서 간단하게 만든것이 제이쿼리이다.
+  즉 자바스크립트 -> 제이쿼리*jquery (제이쿼리는 $코드를 사용함) 제이쿼리는 cdn을 꽂아 넣어놔야
+  사용이 가능하다. react,vue 기반코드*/
+  /*순수한 자바스크립트는 바닐라 자바스크립트라고 부름*/
+  /*제이쿼리는 1.12.4 버전을 사용하는게 좋고 min이라고 붙은 코드를 사용해야 절약적임*/
